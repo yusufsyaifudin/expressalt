@@ -30,11 +30,13 @@ class Server {
     this.Express = express();
     this.middleware();
 
-    if (options.dependecy !== undefined && options.dependecy === Object) {
-      this.Express.use((req, res, next) => {
-        req.dependecy = options.dependecy;
-        next();
-      });
+    if (options.dependecy !== undefined) {
+      if (options.dependecy.constructor === Object) {
+        this.Express.use((req, res, next) => {
+          req.dependecy = options.dependecy;
+          next();
+        });
+      }
     }
 
     this.routes();
