@@ -1,0 +1,29 @@
+{
+  "name": "expressalt",
+  "version": "0.0.1-alpha.1",
+  "description": "Alternative version of ExpressJS using new helpers and routes method",
+  "main": "index.js",
+  "scripts": {
+    "start": "DEBUG=* node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yusuf Syaifudin",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb-base": "^11.1.2",
+    "eslint-plugin-import": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "compression": "^1.6.2",
+    "debug": "^2.6.6",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.1",
+    "express-handlebars": "^3.0.0",
+    "immutable": "^3.8.1",
+    "morgan": "^1.7.0"
+  }
+}
