@@ -17,8 +17,8 @@ class Server {
    * @description Run configuration methods on the Express instance.
    * @param {object} Routes {@link Router}
    * @param {object} Dependency an object to be injected to every req instance.
-   * Example: { dependecy: {} }
-   * You then can access it via `req.dependecy`
+   * Example: { dependency: {} }
+   * You then can access it via `req.dependency`
    */
   constructor(routeCandidate, options = {}) {
     const Options = options.constructor;
@@ -30,10 +30,10 @@ class Server {
     this.Express = express();
     this.middleware();
 
-    if (options.dependecy !== undefined) {
-      if (options.dependecy.constructor === Object) {
+    if (options.dependency !== undefined) {
+      if (options.dependency.constructor === Object) {
         this.Express.use((req, res, next) => {
-          req.dependecy = options.dependecy;
+          req.dependency = options.dependency;
           next();
         });
       }
