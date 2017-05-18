@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Global</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Global</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2></h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="all"><span class="type-signature"></span>all<span class="signature">(prefix, config, handler)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>prefix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">URI path of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object of the config, must be `middleware` or `as`
+another params will not take effects. Or, as an alternative you can pass an handler function
+or class name. See <a href="Router.html#.configFunctionLoader">Router.configFunctionLoader</a>.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handler</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Handler function callback for this request,
+takes 2 or 3 arguments from express handler function (request, response, next)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line209">line 209</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="Router.html#.routeRegister">Router.routeRegister</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>Router.all('/', 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.all('/', (req, res, next) => { res.json({}) });</code></pre>
+
+    <pre class="prettyprint"><code>Router.all('/', { middleware: ['MiddlewareClass'] }, 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.all('/', { middleware: ['MiddlewareClass'] }, (req, res, next) => {
+  res.json({})
+});</code></pre>
+
+    <pre class="prettyprint"><code>Router.all('/', { middleware: [(req, res, next) {
+  next();
+}] }, (req, res, next) => { res.json({}) });</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="delete"><span class="type-signature"></span>delete<span class="signature">(prefix, config, handler)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>prefix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Prefix path of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object of the config, must be `middleware` or `as`
+another params will not take effects. Or, as an alternative you can pass an handler function
+or class name. See <a href="Router.html#.configFunctionLoader">Router.configFunctionLoader</a>.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handler</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Handler function callback for this request,
+takes 2 or 3 arguments from express handler function (request, response, next)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line178">line 178</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="Router.html#.routeRegister">Router.routeRegister</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>Router.delete('/', 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.delete('/', (req, res, next) => { res.json({}) });</code></pre>
+
+    <pre class="prettyprint"><code>Router.delete('/', { middleware: ['MiddlewareClass'] }, 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.delete('/', { middleware: ['MiddlewareClass'] }, (req, res, next) => {
+  res.json({})
+});</code></pre>
+
+    <pre class="prettyprint"><code>Router.delete('/', { middleware: [(req, res, next) {
+  next();
+}] }, (req, res, next) => { res.json({}) });</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(uri, config, handler)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>uri</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">URI path of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object of the config, must be `middleware` or `as`
+another params will not take effects. Or, as an alternative you can pass an handler function
+or class name. See <a href="Router.html#.configFunctionLoader">Router.configFunctionLoader</a>.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handler</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Handler function callback for this request,
+takes 2 or 3 arguments from express handler function (request, response, next)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="Router.html#.routeRegister">Router.routeRegister</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>Router.get('/', 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.get('/', (req, res, next) => { res.json({}) });</code></pre>
+
+    <pre class="prettyprint"><code>Router.get('/', { middleware: ['MiddlewareClass'] }, 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.get('/', { middleware: ['MiddlewareClass'] }, (req, res, next) => {
+  res.json({})
+});</code></pre>
+
+    <pre class="prettyprint"><code>Router.get('/', { middleware: [(req, res, next) {
+  next();
+}] }, (req, res, next) => { res.json({}) });</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="group"><span class="type-signature"></span>group<span class="signature">(prefix, config, callback)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Grouping route with same prefix and middleware inside callback function.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>prefix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">URI path of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object of the config, must be `middleware` or `as`
+another params will not take effects. Or, as an alternative you can pass an handler function
+or class name. See <a href="Router.html#.configFunctionLoader">Router.configFunctionLoader</a>.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Callback function for grouping routes within
+same prefix and middlewares.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line240">line 240</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>Router.group('/', '');</code></pre>
+
+    <pre class="prettyprint"><code>Router.group('/', () => { Router.get(...); Router.post(...); });</code></pre>
+
+    <pre class="prettyprint"><code>Router.group('/', {}, () => { Router.get(...); Router.post(...); });</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="head"><span class="type-signature"></span>head<span class="signature">(uri, config, handler)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>uri</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">URI path of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object of the config, must be `middleware` or `as`
+another params will not take effects. Or, as an alternative you can pass an handler function
+or class name. See <a href="Router.html#.configFunctionLoader">Router.configFunctionLoader</a>.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handler</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Handler function callback for this request,
+takes 2 or 3 arguments from express handler function (request, response, next)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="Router.html#.routeRegister">Router.routeRegister</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>Router.head('/', 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.head('/', (req, res, next) => { res.json({}) });</code></pre>
+
+    <pre class="prettyprint"><code>Router.head('/', { middleware: ['MiddlewareClass'] }, 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.head('/', { middleware: ['MiddlewareClass'] }, (req, res, next) => {
+  res.json({})
+});</code></pre>
+
+    <pre class="prettyprint"><code>Router.head('/', { middleware: [(req, res, next) {
+  next();
+}] }, (req, res, next) => { res.json({}) });</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="map"><span class="type-signature"></span>map<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Return map of registered route.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line374">line 374</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    array
+</div>
+
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="patch"><span class="type-signature"></span>patch<span class="signature">(uri, config, handler)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>uri</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">URI path of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object of the config, must be `middleware` or `as`
+another params will not take effects. Or, as an alternative you can pass an handler function
+or class name. See <a href="Router.html#.configFunctionLoader">Router.configFunctionLoader</a>.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handler</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Handler function callback for this request,
+takes 2 or 3 arguments from express handler function (request, response, next)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line147">line 147</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="Router.html#.routeRegister">Router.routeRegister</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>Router.patch('/', 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.patch('/', (req, res, next) => { res.json({}) });</code></pre>
+
+    <pre class="prettyprint"><code>Router.patch('/', { middleware: ['MiddlewareClass'] }, 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.patch('/', { middleware: ['MiddlewareClass'] }, (req, res, next) => {
+  res.json({})
+});</code></pre>
+
+    <pre class="prettyprint"><code>Router.patch('/', { middleware: [(req, res, next) {
+  next();
+}] }, (req, res, next) => { res.json({}) });</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="post"><span class="type-signature"></span>post<span class="signature">(uri, config, handler)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>uri</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">URI path of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object of the config, must be `middleware` or `as`
+another params will not take effects. Or, as an alternative you can pass an handler function
+or class name. See <a href="Router.html#.configFunctionLoader">Router.configFunctionLoader</a>.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handler</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Handler function callback for this request,
+takes 2 or 3 arguments from express handler function (request, response, next)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line85">line 85</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="Router.html#.routeRegister">Router.routeRegister</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>Router.post('/', 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.post('/', (req, res, next) => { res.json({}) });</code></pre>
+
+    <pre class="prettyprint"><code>Router.post('/', { middleware: ['MiddlewareClass'] }, 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.post('/', { middleware: ['MiddlewareClass'] }, (req, res, next) => {
+  res.json({})
+});</code></pre>
+
+    <pre class="prettyprint"><code>Router.post('/', { middleware: [(req, res, next) {
+  next();
+}] }, (req, res, next) => { res.json({}) });</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="put"><span class="type-signature"></span>put<span class="signature">(uri, config, handler)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>uri</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">URI path of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Object of the config, must be `middleware` or `as`
+another params will not take effects. Or, as an alternative you can pass an handler function
+or class name. See <a href="Router.html#.configFunctionLoader">Router.configFunctionLoader</a>.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handler</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Handler function callback for this request,
+takes 2 or 3 arguments from express handler function (request, response, next)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line116">line 116</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="Router.html#.routeRegister">Router.routeRegister</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>Router.put('/', 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.put('/', (req, res, next) => { res.json({}) });</code></pre>
+
+    <pre class="prettyprint"><code>Router.put('/', { middleware: ['MiddlewareClass'] }, 'Controller.index');</code></pre>
+
+    <pre class="prettyprint"><code>Router.put('/', { middleware: ['MiddlewareClass'] }, (req, res, next) => {
+  res.json({})
+});</code></pre>
+
+    <pre class="prettyprint"><code>Router.put('/', { middleware: [(req, res, next) {
+  next();
+}] }, (req, res, next) => { res.json({}) });</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="resource"><span class="type-signature"></span>resource<span class="signature">(uri, config, handler, callback)</span><span class="type-signature"></span></h4>
+
+    
+    <p class="summary">Register route resources.</p>
+    
+
+
+
+<div class="description">
+    Will register some predefined route with ease.
+`GET / => index => list of resource`
+`GET /:id => show => get resource by id`
+`GET /create => create => view for add resource`
+`POST / => store => add resource`
+`GET /:id/edit => edit => view for edit resource`
+`PATCH /:id => update => update resource`
+`DELETE /:id => destroy => delete resource`
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>uri</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">URI path of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">(optional) Object of the config, must be `middleware` or `as`
+another params will not take effects. Or, as an alternative you can pass an handler function
+or class name. See <a href="Router.html#.configFunctionLoader">Router.configFunctionLoader</a>.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handler</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">(optional) Controller class name for handling this route.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">(optional) Callback for adding extra route
+within this group of resource.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line293">line 293</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>Router.resource('/', 'HomeController');</code></pre>
+
+    <pre class="prettyprint"><code>Router.resource('/', {}, 'HomeController');</code></pre>
+
+    <pre class="prettyprint"><code>Router.resource('/', 'HomeController', () => { Router.get(...); });</code></pre>
+
+    <pre class="prettyprint"><code>Router.resource('/', {}, 'HomeController', () => { Router.get(...); });</code></pre>
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Router.html">Router</a></li><li><a href="module-Server.html">Server</a></li></ul><h3>Classes</h3><ul><li><a href="Router.html">Router</a></li><li><a href="Server.html">Server</a></li></ul><h3>Global</h3><ul><li><a href="global.html#all">all</a></li><li><a href="global.html#delete">delete</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#group">group</a></li><li><a href="global.html#head">head</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#patch">patch</a></li><li><a href="global.html#post">post</a></li><li><a href="global.html#put">put</a></li><li><a href="global.html#resource">resource</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu May 18 2017 14:46:00 GMT+0700 (WIB)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

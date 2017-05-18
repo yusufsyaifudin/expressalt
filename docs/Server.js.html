@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Server.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Server.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const debug = require('debug')('Application');
+const express = require('express');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const exphbs = require('express-handlebars');
+const compression = require('compression');
+
+/**
+ * @author Yusuf Syaifudin &lt;yusuf.syaifudin@gmail.com>
+ * @description Creates and configures an ExpressJS web server.
+ * @class Server
+ */
+class Server {
+
+  /**
+   * @constructor
+   * @description Run configuration methods on the Express instance.
+   * @param {object} Routes {@link Router}
+   * @param {object} Dependency an object to be injected to every req instance.
+   * Example: { dependecy: {} }
+   * You then can access it via `req.dependecy`
+   */
+  constructor(routeCandidate, options = {}) {
+    const Options = options.constructor;
+    if (Options !== Object) {
+      throw new Error(`Options parameter must be an object instead of ${Options}.`);
+    }
+
+    this.routeCandidate = routeCandidate;
+    this.Express = express();
+    this.middleware();
+
+    if (options.dependecy !== undefined &amp;&amp; options.dependecy === Object) {
+      this.Express.use((req, res, next) => {
+        req.dependecy = options.dependecy;
+        next();
+      });
+    }
+
+    this.routes();
+  }
+
+  /**
+   * @description Configure Express middleware.
+   */
+  middleware() {
+    this.Express.use(logger('dev'));
+    this.Express.use(compression());
+    this.Express.use(bodyParser.json());
+    this.Express.use(bodyParser.urlencoded({ extended: false }));
+    this.Express.use(express.static('public'));
+
+    const handlebars = exphbs.create({
+      defaultLayout: 'main',
+      extname: '.html', //set extension to .html so handlebars knows what to look for
+    });
+
+    this.Express.engine('html', handlebars.engine);
+    this.Express.set('view engine', 'html');
+  }
+
+  /**
+   * @summary Configure API endpoints.
+   * @description
+   * This will load all routes just after server starts.
+   */
+  routes() {
+    const Routes = this.routeCandidate;
+    for (let i = 0; i &lt; Routes.map().length; i += 1) {
+      const route = Routes.map()[i];
+      const routePath = `${route.path}`.replace(/\/\/+/g, '/');
+      if (route.verb === 'GET') {
+        // GET method
+        for (let j = 0; j &lt; route.config.middlewares.length; j += 1) {
+          this.Express.use(routePath, route.config.middlewares[j]);
+        }
+
+        this.Express.get(routePath, route.handler);
+      } else if (route.verb === 'HEAD') {
+        // HEAD method
+        for (let j = 0; j &lt; route.config.middlewares.length; j += 1) {
+          this.Express.use(routePath, route.config.middlewares[j]);
+        }
+
+        this.Express.head(routePath, route.handler);
+      } else if (route.verb === 'POST') {
+        // POST method
+        for (let j = 0; j &lt; route.config.middlewares.length; j += 1) {
+          this.Express.use(routePath, route.config.middlewares[j]);
+        }
+
+        this.Express.post(routePath, route.handler);
+      } else if (route.verb === 'PUT') {
+        // PUT method
+        for (let j = 0; j &lt; route.config.middlewares.length; j += 1) {
+          this.Express.use(routePath, route.config.middlewares[j]);
+        }
+
+        this.Express.put(routePath, route.handler);
+      } else if (route.verb === 'PATCH') {
+        // PATCH method
+        for (let j = 0; j &lt; route.config.middlewares.length; j += 1) {
+          this.Express.use(routePath, route.config.middlewares[j]);
+        }
+
+        this.Express.patch(routePath, route.handler);
+      } else if (route.verb === 'DELETE') {
+        // DELETE method
+        for (let j = 0; j &lt; route.config.middlewares.length; j += 1) {
+          this.Express.use(routePath, route.config.middlewares[j]);
+        }
+
+        this.Express.delete(routePath, route.handler);
+      } else if (route.verb === 'ALL') {
+        // ALL HTTP VERB
+        for (let j = 0; j &lt; route.config.middlewares.length; j += 1) {
+          this.Express.use(routePath, route.config.middlewares[j]);
+        }
+
+        this.Express.all(routePath, route.handler);
+      }
+    }
+
+    /* eslint-disable no-underscore-dangle */
+    debug('*'.repeat(60));
+    debug('All registered routes: ');
+    this.Express._router.stack.forEach((r) => {
+      if (r.route &amp;&amp; r.route.path) {
+        debug(`${r.route.stack[0].method} ${r.route.path}`);
+      }
+    });
+    debug('*'.repeat(60));
+    /* eslint-enable no-underscore-dangle */
+  }
+
+}
+
+/**
+ * @exports Server
+ * @description This use for create new expressjs http instance.
+ * @example
+ * const Loader = require('./Helpers/Loader').require;
+ * const Routes = Loader('app/Http/routes');
+ * const App = new Server(Routes).Express;
+ */
+module.exports = Server;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Router.html">Router</a></li><li><a href="module-Server.html">Server</a></li></ul><h3>Classes</h3><ul><li><a href="Router.html">Router</a></li><li><a href="Server.html">Server</a></li></ul><h3>Global</h3><ul><li><a href="global.html#all">all</a></li><li><a href="global.html#delete">delete</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#group">group</a></li><li><a href="global.html#head">head</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#patch">patch</a></li><li><a href="global.html#post">post</a></li><li><a href="global.html#put">put</a></li><li><a href="global.html#resource">resource</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu May 18 2017 14:46:00 GMT+0700 (WIB)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

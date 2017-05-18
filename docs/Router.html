@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Router</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Router</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>Router</h2>
+        
+            <div class="class-description">Router
+Router Class</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="Router"><span class="type-signature"></span>new Router<span class="signature">(prefix)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>prefix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A prefix of route(s)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li><a href="mailto:yusuf.syaifudin@gmail.com">Yusuf Syaifudin</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".callbackLoader"><span class="type-signature">(static) </span>callbackLoader<span class="signature">(arg)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    For loading callback if the argument is not function or instance of function
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arg</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">must callback function or String of controller name.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line661">line 661</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+    <div class="param-desc">
+    
+        TypeError
+    
+    </div>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Function or see routeFunctionLoader <a href="Router.html#.routeFunctionLoader">Router.routeFunctionLoader</a>
+to know how function will be load.
+</div>
+
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".configFunctionLoader"><span class="type-signature">(static) </span>configFunctionLoader<span class="signature">(config)</span><span class="type-signature"></span></h4>
+
+    
+    <p class="summary">Parse Config</p>
+    
+
+
+
+<div class="description">
+    Parsing configuration object and return
+array of middleware and alias name of this route.
+The config object contains `middleware` name and `as` name.
+
+Another object key will not counted as config.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array of Object of configuration</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line604">line 604</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    object with middleware key and as key.
+Middleware key contains array of callback function.
+</div>
+
+
+
+    
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>Router.configFunctionLoader({middleware: 'AuthMiddleware', as: 'route_name'});
+See <a href="Router.html#.loadMiddleware">Router.loadMiddleware</a> if you input a string as parameter.</code></pre>
+
+    <pre class="prettyprint"><code>Router.configFunctionLoader({as: 'route_name', middleware: (req, res, next) => {}});</code></pre>
+
+    <pre class="prettyprint"><code>Router.configFunctionLoader({middleware: [(req, res, next) => {}]});</code></pre>
+
+    <pre class="prettyprint"><code>Router.configFunctionLoader({middleware: ['MiddlewareName', (req, res, next) => {}]});</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".loadMiddleware"><span class="type-signature">(static) </span>loadMiddleware<span class="signature">(classname)</span><span class="type-signature"></span></h4>
+
+    
+    <p class="summary">Load middleware by file name</p>
+    
+
+
+
+<div class="description">
+    Middleware must be inside `app/Http/Middleware` directory.
+And must be specify a function named `handle`, it can be static or not.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>classname</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Middleware class file name.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line563">line 563</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+    <div class="param-desc">
+    
+        handle function not found
+    
+    </div>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    function on success
+</div>
+
+
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>Router.loadMiddleware('AuthMiddleware');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".parseResourceController"><span class="type-signature">(static) </span>parseResourceController<span class="signature">(prefix, config, controllerName)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Parse given controller file name to resource routes.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>prefix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">prefix for resource controller</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">object configuration</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>controllerName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">controller file name to be register in this resource prefix.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line393">line 393</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    array of routes
+</div>
+
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".routeFunctionLoader"><span class="type-signature">(static) </span>routeFunctionLoader<span class="signature">(namespace)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Load Controller name and function name to route.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>namespace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Controller and function name, i.e: `HomeController.index`</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line511">line 511</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Function of given name inside given class name.
+</div>
+
+
+
+    
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>Router.routeFunctionLoader('HomeController.index')</code></pre>
+
+    <pre class="prettyprint"><code>Router.routeFunctionLoader('HomeController.destroy')</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".routeRegister"><span class="type-signature">(static) </span>routeRegister<span class="signature">(verb, uri, param2, param3, additionalConfig)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Parse all configuration to function that ready to call and register to route.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>verb</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">http verb to be register, `GET`, `POST` or etc</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>uri</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">prefix of route</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>param2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">function</span>
+|
+
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">can be config (if object),
+callback function for expressjs or controller `classname.function_name`.
+See <a href="Router.html#.callbackLoader">Router.callbackLoader</a></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>param3</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">can be either `ControllerClass.FuncName` or callback function</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>additionalConfig</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">configuration like middleware or etc,
+See <a href="Router.html#.configFunctionLoader">Router.configFunctionLoader</a>
+
+* @example Router.routeRegister('GET', '/foo', {}, () => {
+
+}, { middleware: [], 'as': 'name' });</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Router.js.html">Router.js</a>, <a href="Router.js.html#line699">line 699</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>callbackLoader</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+    <div class="param-desc">
+    
+        TypeError if input type is not same as required type.
+    
+    </div>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    new route object contain following object keys:
+http verb, prefix path, handler function, parsed config, route alias name.
+See <a href="Router.html#.configFunctionLoader">Router.configFunctionLoader</a> to know how config object will be parsed.
+</div>
+
+
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Router.html">Router</a></li><li><a href="module-Server.html">Server</a></li></ul><h3>Classes</h3><ul><li><a href="Router.html">Router</a></li><li><a href="Server.html">Server</a></li></ul><h3>Global</h3><ul><li><a href="global.html#all">all</a></li><li><a href="global.html#delete">delete</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#group">group</a></li><li><a href="global.html#head">head</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#patch">patch</a></li><li><a href="global.html#post">post</a></li><li><a href="global.html#put">put</a></li><li><a href="global.html#resource">resource</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu May 18 2017 14:46:00 GMT+0700 (WIB)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
