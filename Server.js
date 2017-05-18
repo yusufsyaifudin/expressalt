@@ -36,7 +36,7 @@ class Server {
         next();
       });
     }
-    
+
     this.routes();
   }
 
