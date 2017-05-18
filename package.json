@@ -1,6 +1,6 @@
 {
   "name": "expressalt",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1-alpha.3",
   "description": "Alternative version of ExpressJS using new helpers and routes method",
   "main": "index.js",
   "scripts": {
